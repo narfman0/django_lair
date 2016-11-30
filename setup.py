@@ -28,13 +28,12 @@ if sys.argv[-1] == 'tag':
     sys.exit()
 
 readme = open('README.rst').read()
-history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='django_lair',
     version=version,
     description="""Analytics and metrics app to both store and display user actions""",
-    long_description=readme + '\n\n' + history,
+    long_description=readme,
     author='Jon Robison',
     author_email='narfman0@gmail.com',
     url='https://github.com/narfman0/django_lair',
@@ -42,7 +41,7 @@ setup(
         'django_lair',
     ],
     include_package_data=True,
-    install_requires=["django-model-utils>=2.0",],
+    install_requires=["django-model-utils>=2.0", ],
     license="MIT",
     zip_safe=False,
     keywords='django_lair',
