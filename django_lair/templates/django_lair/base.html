@@ -9,13 +9,11 @@
     </head>
     <body>
         <div class="container">
-            <nav class="navbar navbar-default">
-            <a href="{% url "Datum_list" %}">
+            <a href="{% url "datum_list" %}">
                 <button type="button" class="btn btn-default" aria-label="Dashboard">
                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                 </button>
             </a>
-            </nav>
             {% block content %}{% endblock content %}
         </div>
     </body>

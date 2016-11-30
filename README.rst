@@ -46,10 +46,15 @@ Add django_lair's URL patterns:
         ...
     ]
 
+ Migrate app::
+
+     ./manage.py migrate django_lair
+
 Features
 --------
 
-* TODO
+* Stores users and shows list view of metrics hit
+* Provides simplistic (to be expanded :)) list view of saved datums
 
 Running Tests
 -------------
