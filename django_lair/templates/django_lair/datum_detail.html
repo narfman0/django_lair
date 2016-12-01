@@ -1,0 +1,8 @@
+{% extends "django_lair/base.html" %}
+
+{% block content %}
+    <div class="bs-callout bs-callout-warning">
+        <h4>Datum detail for: {{ datum.name }}</h4>
+    </div>
+    {% include "django_lair/datum_list_table.html" %}
+{% endblock %}

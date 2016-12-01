@@ -59,13 +59,11 @@ Features
 TODO
 ----
 
-* Create user detail table (paginated?)
-* Create user detail graph
-* Metric detail view table (paginated?)
+* Pagination for table views
+* Filtering+sorting for table views
+* User detail graph
 * Metric detail view graph
-* Home dashboard include unique users per day
-* Home dashboard table pagination
-* Home dashboard table filters/sorting
+* Home dashboard unique users per day
 
 Running Tests
 -------------

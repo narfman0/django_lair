@@ -16,6 +16,11 @@ urlpatterns = [
         name='datum_create',
     ),
     url(
+        regex="^datum/(?P<pk>\d+)/$",
+        view=views.DatumDetailView.as_view(),
+        name='datum_detail',
+    ),
+    url(
         regex="^user/(?P<pk>\d+)/$",
         view=views.UserDetailView.as_view(),
         name='user_detail',

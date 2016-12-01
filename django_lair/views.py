@@ -23,6 +23,15 @@ class DatumCreateView(CreateView):
         return super(DatumCreateView, self).post(self, request, *args, **kwargs)
 
 
+class DatumDetailView(DetailView):
+    model = Datum
+
+    def get_context_data(self, **kwargs):
+        context = super(DatumDetailView, self).get_context_data(**kwargs)
+        context['datums'] = Datum.objects.filter(name=self.get_object().name)
+        return context
+
+
 class UserDetailView(DetailView):
     model = User
 

@@ -12,7 +12,7 @@
         {% for datum in datums %}
             <tr>
                 <td>{{ datum.id }}</td>
-                <td>{{ datum.name }}</td>
+                <td><a href="{% url 'datum_detail' datum.id %}">{{ datum.name }}</a></td>
                 <td>{{ datum.value }}</td>
                 <td><a href="{% url 'user_detail' datum.user.id %}">{{ datum.user }}</a></td>
                 <td>{{ datum.created }}</td>
