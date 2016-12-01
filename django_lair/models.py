@@ -9,6 +9,7 @@ from model_utils.models import TimeStampedModel
 @python_2_unicode_compatible
 class User(models.Model):
     uuid = models.UUIDField()
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.uuid)

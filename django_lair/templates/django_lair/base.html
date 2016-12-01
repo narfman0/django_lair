@@ -14,6 +14,11 @@
                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                 </button>
             </a>
+            <a href="{% url "datum_create" %}">
+                <button type="button" class="btn btn-default" aria-label="Create">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </a>
             {% block content %}{% endblock content %}
         </div>
     </body>

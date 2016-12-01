@@ -15,4 +15,9 @@ urlpatterns = [
         view=csrf_exempt(views.DatumCreateView.as_view()),
         name='datum_create',
     ),
+    url(
+        regex="^user/(?P<pk>\d+)/$",
+        view=views.UserDetailView.as_view(),
+        name='user_detail',
+    ),
 ]

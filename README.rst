@@ -56,6 +56,17 @@ Features
 * Stores users and shows list view of metrics hit
 * Provides simplistic (to be expanded :)) list view of saved datums
 
+TODO
+----
+
+* Create user detail table (paginated?)
+* Create user detail graph
+* Metric detail view table (paginated?)
+* Metric detail view graph
+* Home dashboard include unique users per day
+* Home dashboard table pagination
+* Home dashboard table filters/sorting
+
 Running Tests
 -------------
 
