@@ -5,5 +5,5 @@
         <h4>User detail for: {{ user.id }}</h4>
         <p>User was created on {{ user.created }}</p>
     </div>
-    {% include "django_lair/datum_list_table.html" %}
+    {% include "django_lair/datum_list_table.html" with table_id="table1" %}
 {% endblock %}

@@ -59,8 +59,6 @@ Features
 TODO
 ----
 
-* Pagination for table views
-* Filtering+sorting for table views
 * User detail graph
 * Metric detail view graph
 * Home dashboard unique users per day

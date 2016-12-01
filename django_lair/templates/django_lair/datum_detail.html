@@ -4,5 +4,5 @@
     <div class="bs-callout bs-callout-warning">
         <h4>Datum detail for: {{ datum.name }}</h4>
     </div>
-    {% include "django_lair/datum_list_table.html" %}
+    {% include "django_lair/datum_list_table.html" with table_id="table1" %}
 {% endblock %}
