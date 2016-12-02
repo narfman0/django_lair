@@ -2,4 +2,5 @@
 
 {% block content %}
     {% include "django_lair/datum_list_table.html" with datums=object_list table_id="table1" %}
+    {% include "django_lair/chart.html" with label="Unique Users" data=activity labels=labels %}
 {% endblock %}

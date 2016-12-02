@@ -48,6 +48,11 @@ class TestDjango_lair(TestCase):
         self.assertEqual(labels[0], (timezone.now() - timedelta(days=30)).day)
         self.assertEqual(labels[-1], (timezone.now() - timedelta(days=1)).day)
 
+    def test_generate_unique_users(self):
+        uniques = util.generate_unique_users()
+        self.assertEqual(len(uniques), 30)
+        self.assertEqual(uniques[0], 1) # eventually make unique users more to really test this out
+
     def tearDown(self):
         self.user.delete()
         for datum in self.data:

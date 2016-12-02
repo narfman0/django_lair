@@ -60,7 +60,6 @@ TODO
 ----
 
 * Metric detail view graph
-* Home dashboard unique users per day
 
 Running Tests
 -------------

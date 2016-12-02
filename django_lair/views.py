@@ -3,11 +3,17 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.http.response import HttpResponseRedirect
 from django.views.generic import CreateView, DetailView, ListView
 from .models import Datum, User
-from .util import generate_day_labels, generate_usage
+from .util import generate_day_labels, generate_usage, generate_unique_users
 
 
 class DatumListView(ListView):
     model = Datum
+
+    def get_context_data(self, **kwargs):
+        context = super(DatumListView, self).get_context_data(**kwargs)
+        context['activity'] = generate_unique_users()
+        context['labels'] = generate_day_labels()
+        return context
 
 
 class DatumCreateView(CreateView):
