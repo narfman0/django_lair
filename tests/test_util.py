@@ -10,6 +10,7 @@ Tests for `django_lair` models module.
 from datetime import timedelta
 from uuid import uuid4
 from django.test import TestCase
+from django.utils import timezone
 from django_lair import models, util
 
 
@@ -26,20 +27,26 @@ class TestDjango_lair(TestCase):
 
     def test_generate_usage_simple(self):
         extra = models.Datum.objects.create(user=self.user, name='test1', value=2)
-        result, labels = util.generate_usage(models.Datum.objects.filter(name='test1'))
+        result = util.generate_usage(models.Datum.objects.filter(name='test1'))
         self.assertEqual(len(result), 30)
         extra.delete()
 
     def test_generate_usage_extra(self):
-        result, labels = util.generate_usage(models.Datum.objects.filter(name='test1'))
+        result = util.generate_usage(models.Datum.objects.filter(name='test1'))
         self.assertEqual(len(result), 30)
         self.assertEqual(result[-1], 1)
 
         extra = models.Datum.objects.create(user=self.user, name='test1', value=2)
-        result, labels = util.generate_usage(models.Datum.objects.filter(name='test1'))
+        result = util.generate_usage(models.Datum.objects.filter(name='test1'))
         self.assertEqual(len(result), 30)
         self.assertEqual(result[-1], 2)
         extra.delete()
+
+    def test_generate_day_labels(self):
+        labels = util.generate_day_labels()
+        self.assertEqual(len(labels), 30)
+        self.assertEqual(labels[0], (timezone.now() - timedelta(days=30)).day)
+        self.assertEqual(labels[-1], (timezone.now() - timedelta(days=1)).day)
 
     def tearDown(self):
         self.user.delete()

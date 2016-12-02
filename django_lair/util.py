@@ -15,5 +15,9 @@ def generate_usage(data, days=30):
             index += datum.created.day - last_day
             last_day = datum.created.day
         data_usage[index] += 1
-    day_labels = [(start_date + timedelta(i-1)).day for i in range(days)]
-    return data_usage, day_labels
+    return data_usage
+
+
+def generate_day_labels(days=30):
+    start_date = timezone.now() - timedelta(days=days - 1)
+    return [(start_date + timedelta(i - 1)).day for i in range(days)]
