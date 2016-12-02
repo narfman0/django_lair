@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.http.response import HttpResponseRedirect
 from django.views.generic import CreateView, DetailView, ListView
 from .models import Datum, User
+from .util import generate_usage
 
 
 class DatumListView(ListView):
@@ -38,4 +39,7 @@ class UserDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
         context['datums'] = Datum.objects.filter(user=self.get_object())
+        activity, labels = generate_usage(Datum.objects.filter(user=self.get_object()))
+        context['activity'] = activity
+        context['labels'] = labels
         return context

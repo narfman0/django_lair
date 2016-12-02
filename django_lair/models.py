@@ -15,7 +15,11 @@ class User(models.Model):
         return str(self.uuid)
 
 
+@python_2_unicode_compatible
 class Datum(TimeStampedModel):
     user = models.ForeignKey(User)
     name = models.CharField(max_length=200, db_index=True)
     value = models.TextField()
+
+    def __str__(self):
+        return str(self.user) + ' ' + self.name + ' ' + self.value + ' ' + str(self.created)

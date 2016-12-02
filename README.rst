@@ -29,7 +29,7 @@ Add it to your `INSTALLED_APPS`:
 
     INSTALLED_APPS = (
         ...
-        'django_lair.apps.DjangoLairConfig',
+        'django_lair',
         ...
     )
 
@@ -59,7 +59,6 @@ Features
 TODO
 ----
 
-* User detail graph
 * Metric detail view graph
 * Home dashboard unique users per day
 

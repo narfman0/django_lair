@@ -6,4 +6,5 @@
         <p>User was created on {{ user.created }}</p>
     </div>
     {% include "django_lair/datum_list_table.html" with table_id="table1" %}
+    {% include "django_lair/chart.html" with label="User Activity" data=activity labels=labels %}
 {% endblock %}
