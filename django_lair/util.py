@@ -20,16 +20,27 @@ def generate_usage(data, days=30):
     return data_usage
 
 
+def generate_unique_users(days=30):
+    counts = []
+    for day in range(days):
+        counts.append(Datum.objects.filter(created_on_day_q(day)).values('user').distinct().count())
+    counts.reverse()
+    return counts
+
+
+def generate_datum_frequency(name, days=30):
+    counts = []
+    for day in range(days):
+        counts.append(Datum.objects.filter(name=name).filter(created_on_day_q(day)).count())
+    counts.reverse()
+    return counts
+
+
 def generate_day_labels(days=30):
     start_date = timezone.now() - timedelta(days=days - 1)
     return [(start_date + timedelta(i - 1)).day for i in range(days)]
 
 
-def generate_unique_users(days=30):
-    counts = []
-    for day in range(days):
-        counts.append(Datum.objects.filter(
-            Q(created__gt=timezone.now() - timedelta(days=day + 1)) &
-            Q(created__lt=timezone.now() - timedelta(days=day))).values('user').distinct().count())
-    counts.reverse()
-    return counts
+def created_on_day_q(day):
+    return Q(created__gt=timezone.now() - timedelta(days=day + 1)) &\
+        Q(created__lt=timezone.now() - timedelta(days=day))

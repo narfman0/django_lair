@@ -14,7 +14,11 @@ Documentation
 -------------
 
 django_lair will ingest user metrics, store in django configured database,
-and show views for the user
+and show views for the user. Provides an API in your django application to
+POST user data in key, value form to support arbitrary types of data.
+
+Clients generate their own UUID and save locally. There is no special
+authentication or authorization.
 
 Quickstart
 ----------
@@ -46,20 +50,31 @@ Add django_lair's URL patterns:
         ...
     ]
 
- Migrate app::
+Migrate app::
 
      ./manage.py migrate django_lair
+
+Usage
+-----
+
+For the top level dashboard, navigate to `<endpoint>/datum/`, e.g.::
+
+    http://localhost:8000/datum/
+
+To add metric data, POST to endpoint `/datum/create/` with user, metric
+name, and metric value information::
+
+    curl --data "user=abcdefgh-1234-1234-9876-abcdefghijkl&name=metric1&value=value1" http://localhost:8000/datum/create/
+
+Each field is mandatory, so be sure to include uuid, name, and value in the POST.
 
 Features
 --------
 
 * Stores users and shows list view of metrics hit
-* Provides simplistic (to be expanded :)) list view of saved datums
-
-TODO
-----
-
-* Metric detail view graph
+* Provides simplistic list view of saved datums including unique user graphs
+* Provides detailed user page with frequency graph
+* Search, sort, and filter paginated tables of user data
 
 Running Tests
 -------------
