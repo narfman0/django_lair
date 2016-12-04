@@ -61,12 +61,18 @@ For the top level dashboard, navigate to `<endpoint>/datum/`, e.g.::
 
     http://localhost:8000/datum/
 
+To create a new user with metric datum, POST to endpoint `/datum/create/`
+with metric data. Make sure you use the `uuid` param (it is suggested to
+always use uuid form)::
+
+    curl --data "uuid=abcdefgh-1234-1234-9876-abcdefghijkl&name=metric1&value=value1" http://localhost:8000/datum/create/
+
 To add metric data, POST to endpoint `/datum/create/` with user, metric
 name, and metric value information::
 
     curl --data "user=abcdefgh-1234-1234-9876-abcdefghijkl&name=metric1&value=value1" http://localhost:8000/datum/create/
 
-Each field is mandatory, so be sure to include uuid, name, and value in the POST.
+Be sure to include uuid/user, name, and value in the POST for each metric
 
 Features
 --------
