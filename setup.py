@@ -8,7 +8,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-version = '1.0.1'
+version = '1.0.2'
 
 if sys.argv[-1] == 'publish':
     try:
@@ -41,7 +41,6 @@ setup(
         'django_lair',
     ],
     include_package_data=True,
-    install_requires=["django-model-utils>=2.0", ],
     license="MIT",
     zip_safe=False,
     keywords='django_lair',
