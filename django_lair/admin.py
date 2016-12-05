@@ -9,6 +9,6 @@ admin.site.register(User, UserAdmin)
 
 
 class DatumAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'value', 'user', 'modified', 'created')
+    list_display = ('id', 'name', 'value', 'user', 'created')
     search_fields = ('name', 'value', 'user')
 admin.site.register(Datum, DatumAdmin)
